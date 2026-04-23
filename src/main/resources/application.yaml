@@ -1,3 +1,7 @@
 spring:
   application:
     name: seguranca-proxy
+  profiles:
+    active: dev
+  jpa:
+    open-in-view: false
