@@ -2,9 +2,7 @@ package com.seguranca_proxy.controller;
 
 import com.seguranca_proxy.controller.dto.UserCreateDTO;
 import com.seguranca_proxy.security.annotations.HasRole;
-import com.seguranca_proxy.security.filter.CustomSecurityEndpointsFilter;
 import com.seguranca_proxy.service.AuthenticationService;
-import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,11 +13,9 @@ import java.util.Map;
 public class AuthController {
 
     private final AuthenticationService authenticationService;
-    private final CustomSecurityEndpointsFilter securityEndpointsFilter;
 
-    public AuthController(AuthenticationService authenticationService, CustomSecurityEndpointsFilter securityEndpointsFilter) {
+    public AuthController(AuthenticationService authenticationService) {
         this.authenticationService = authenticationService;
-        this.securityEndpointsFilter = securityEndpointsFilter;
     }
 
     @PostMapping("/register")
@@ -40,8 +36,8 @@ public class AuthController {
     }
 
     @GetMapping("/endpoint-com-role-user")
-    @HasRole("ROLE_ADMIN")
-    public String testeEndpointComRoleUser(HttpServletRequest request) {
+    @HasRole("ROLE_USER")
+    public String testeEndpointComRoleUser() {
         return "Endpoint com role user";
     }
 

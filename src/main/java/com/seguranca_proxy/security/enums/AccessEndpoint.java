@@ -10,7 +10,7 @@ public enum AccessEndpoint {
 
     final String descricao;
 
-    private AccessEndpoint(String descricao){
+    AccessEndpoint(String descricao){
         this.descricao = descricao;
     }
 }

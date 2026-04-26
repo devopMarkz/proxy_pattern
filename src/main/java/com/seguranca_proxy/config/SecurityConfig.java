@@ -6,6 +6,7 @@ import com.seguranca_proxy.security.filter.CustomSecurityEndpointsFilter;
 import com.seguranca_proxy.security.filter.SecurityFilter;
 import com.seguranca_proxy.security.impl.CustomAuthenticationManager;
 import com.seguranca_proxy.security.impl.UserService;
+import lombok.NonNull;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -27,16 +28,16 @@ public class SecurityConfig {
     }
 
     @Bean
-    public FilterRegistrationBean<SecurityFilter> securityFilterRegistration(SecurityFilter filter) {
-        FilterRegistrationBean<SecurityFilter> registration = new FilterRegistrationBean<>();
+    public FilterRegistrationBean<@NonNull SecurityFilter> securityFilterRegistration(SecurityFilter filter) {
+        FilterRegistrationBean<@NonNull SecurityFilter> registration = new FilterRegistrationBean<>();
         registration.setFilter(filter);
         registration.setOrder(1);
         return registration;
     }
 
     @Bean
-    public FilterRegistrationBean<CustomSecurityEndpointsFilter> endpointsFilterRegistration(CustomSecurityEndpointsFilter filter) {
-        FilterRegistrationBean<CustomSecurityEndpointsFilter> registration = new FilterRegistrationBean<>();
+    public FilterRegistrationBean<@NonNull CustomSecurityEndpointsFilter> endpointsFilterRegistration(CustomSecurityEndpointsFilter filter) {
+        FilterRegistrationBean<@NonNull CustomSecurityEndpointsFilter> registration = new FilterRegistrationBean<>();
         registration.setFilter(filter);
         registration.setOrder(2);
         return registration;
