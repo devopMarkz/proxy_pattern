@@ -41,7 +41,7 @@ public class TokenHelper {
         Algorithm algorithm = Algorithm.HMAC256("secret");
 
         String token = JWT.create()
-                .withClaim("roles", List.of(user.getRoles().stream().map(GenericRole::getRoleName).toList()))
+                .withClaim("roles", user.getRoles().stream().map(GenericRole::getRoleName).toList())
                 .withSubject(user.getUsername())
                 .withIssuer("api")
                 .withIssuedAt(Instant.now())
