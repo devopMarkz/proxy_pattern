@@ -1,5 +1,7 @@
-package com.seguranca_proxy.security;
+package com.seguranca_proxy.security.model;
 
+import com.seguranca_proxy.security.GenericRole;
+import com.seguranca_proxy.security.GenericUser;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -17,7 +19,7 @@ public class User implements GenericUser {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String login;
+    private String username;
 
     private String senha;
 
@@ -34,15 +36,15 @@ public class User implements GenericUser {
     public User() {
     }
 
-    public User(String login, String senha, Boolean ativo) {
-        this.login = login;
+    public User(String username, String senha, Boolean ativo) {
+        this.username = username;
         this.senha = senha;
         this.ativo = ativo;
     }
 
     @Override
     public String getUsername() {
-        return this.login;
+        return this.username;
     }
 
     @Override

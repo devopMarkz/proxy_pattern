@@ -1,7 +1,6 @@
 package com.seguranca_proxy.security.model;
 
 import com.seguranca_proxy.security.GenericRole;
-import com.seguranca_proxy.security.impl.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
