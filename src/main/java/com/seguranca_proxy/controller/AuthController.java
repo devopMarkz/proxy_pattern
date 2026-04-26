@@ -1,6 +1,7 @@
 package com.seguranca_proxy.controller;
 
 import com.seguranca_proxy.controller.dto.UserCreateDTO;
+import com.seguranca_proxy.security.annotations.HasRole;
 import com.seguranca_proxy.security.filter.CustomSecurityEndpointsFilter;
 import com.seguranca_proxy.service.AuthenticationService;
 import jakarta.servlet.http.HttpServletRequest;
@@ -39,6 +40,7 @@ public class AuthController {
     }
 
     @GetMapping("/endpoint-com-role-user")
+    @HasRole("ROLE_ADMIN")
     public String testeEndpointComRoleUser(HttpServletRequest request) {
         return "Endpoint com role user";
     }

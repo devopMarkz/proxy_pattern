@@ -25,7 +25,7 @@ public class User implements GenericUser {
 
     private Boolean ativo = Boolean.TRUE;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "tb_role_user",
             joinColumns = @JoinColumn(name = "user_id"),

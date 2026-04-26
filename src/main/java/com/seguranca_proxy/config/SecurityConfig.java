@@ -18,7 +18,6 @@ public class SecurityConfig {
         return new CustomSecurityEndpointsFilter(tokenHelper, userService)
                 .requestMatchers("POST", "/auth/login", AccessEndpoint.PERMIT_ALL)
                 .requestMatchers("POST", "/auth/register", AccessEndpoint.PERMIT_ALL)
-                .requestMatchers("GET", "/auth/endpoint-com-role-user", "ROLE_USER")
                 .otherEndpoints(AccessEndpoint.AUTHENTICATED);
     }
 
