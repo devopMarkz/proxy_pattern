@@ -1,0 +1,3 @@
+INSERT INTO tb_role (role) VALUES ('ROLE_ADMIN');
+INSERT INTO tb_role (role) VALUES ('ROLE_USER');
+INSERT INTO tb_role (role) VALUES ('ROLE_MANAGER');
